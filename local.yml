@@ -42,3 +42,17 @@
       dconf:
         key: "/org/gnome/desktop/background/picture-options"
         value: "'zoom'"
+
+    - name: copy tmux configuration
+      copy:
+        src: files/tmux.conf
+        dest: /home/adam/.tmux.conf
+        owner: adam
+        group: adam
+
+    - name: copy .zshrc file
+      copy:
+        src: files/bashrc
+        dest: /home/adam/.zshrc
+        owner: adam
+        group: adam
