@@ -56,3 +56,26 @@
         dest: /home/adam/.zshrc
         owner: adam
         group: adam
+
+    - name: add automation user
+      user:
+        name: automation
+        system: yes
+
+    - name: set up sudo for automation user
+      copy:
+        src: files/sudoer_automation
+        dest: /etc/sudoers.d/automation
+        owner: root
+        group: root
+        mode: 0440
+
+    - name: add ansible-pull cron job
+      cron:
+        name: ansible auto-provision
+        user: automation
+        minute: "*/10"
+        job: >
+          ansible-pull
+          --only-if-changed
+          --url https://github.com/AdamMartinCote/linux-config.git
