@@ -85,4 +85,5 @@
       become_user: adam
       dconf:
         key: "/org/gnome/desktop/input-sources/xkb-options"
-        value: "['ctrl:nocaps']"
+        value:
+          - ctrl:nocaps
