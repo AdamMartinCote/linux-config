@@ -4,6 +4,18 @@
   become: true
 
   tasks:
-    - name: install htop
+    - name: install packages
       package:
-        name: htop
+        name:
+          - htop
+          - tmux
+          - neovim
+          - zsh
+          - tree
+          - python3
+          - node
+          - jq
+          - ipython3
+          - ripgrep
+          - exa
+          - bat
