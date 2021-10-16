@@ -13,7 +13,7 @@
           - zsh
           - tree
           - python3
-          - node
+          - nodejs
           - jq
           - ipython3
           - ripgrep
