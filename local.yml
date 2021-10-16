@@ -19,3 +19,26 @@
           - ripgrep
           - exa
           - bat
+          - dconf-cli
+          - python3-psutil
+
+    # Dconf
+    # to get all possible settings, use `dconf dump /`
+    - name: copy wallpaper file
+      copy:
+        src: files/wallpaper.jpeg
+        dest: /usr/share/backgrounds/ansible-wallpaper.jpeg
+        owner: root
+        group: root
+
+    - name: set wallpaper
+      become_user: adam
+      dconf:
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpeg'"
+
+    - name: set wallpaper position
+      become_user: adam
+      dconf:
+        key: "/org/gnome/desktop/background/picture-options"
+        value: "'zoom'"
