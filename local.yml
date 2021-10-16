@@ -50,9 +50,9 @@
         owner: adam
         group: adam
 
-    - name: copy .zshrc file
+    - name: copy Zsh configuration
       copy:
-        src: files/bashrc
+        src: files/zshrc
         dest: /home/adam/.zshrc
         owner: adam
         group: adam
