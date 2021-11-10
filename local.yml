@@ -23,6 +23,14 @@
           - bat
           - dconf-cli
           - python3-psutil
+          - meld
+
+    - name: remove packages
+      package:
+        name:
+          - nano
+        state: absent
+
 
     # Dconf
     # to get all possible settings, use `dconf dump /`
@@ -87,4 +95,4 @@
       dconf:
         key: "/org/gnome/desktop/input-sources/xkb-options"
         value:
-          - ctrl:nocaps
+          - "ctrl:nocaps"
